@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #1F1F1F;
+    background-color: #FAF8F5;
+  }
+
+  h1, h2, h3, .font-serif-display {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  }
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #581C38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4A1525;
+}
+
+/* Luxury Glassmorphism */
+.glass-nav {
+  background: rgba(250, 248, 245, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.glass-plum {
+  background: rgba(74, 21, 37, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* 3D Book Perspective Tilt */
+.book-perspective {
+  perspective: 1200px;
+}
+
+.book-card {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+  transform: rotateY(-8deg) rotateX(4deg) scale(0.98);
+  transform-style: preserve-3d;
+}
+
+.book-card:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+  box-shadow: -15px 25px 40px -10px rgba(56, 13, 27, 0.25);
+}
+
+/* Editorial Line Accents */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5EFD7 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.plum-gradient-bg {
+  background: linear-gradient(135deg, #4A1525 0%, #581C38 50%, #380D1B 100%);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+/* Smooth Image Hover Zoom */
+.zoom-container {
+  overflow: hidden;
+}
+.zoom-container img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.zoom-container:hover img {
+  transform: scale(1.06);
+}
