@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, BookOpen, ArrowRight, Sparkles, Heart } from 'lucide-react';
+import { Menu, X, BookOpen, Heart } from 'lucide-react';
 
 export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,30 +33,35 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-      isScrolled ? 'glass-nav py-3 shadow-editorial' : 'bg-transparent py-6'
+      isScrolled ? 'glass-nav py-2.5 shadow-editorial' : 'bg-transparent py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         
-        {/* Brand Logo & Editorial Monogram */}
+        {/* Brand Logo & Editorial Title (Top Left) */}
         <button 
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-3 group text-left"
+          className="flex items-center gap-3.5 group text-left cursor-pointer focus:outline-none"
         >
-          <div className="w-10 h-10 rounded-full plum-gradient-bg border border-gold-400/40 flex items-center justify-center text-gold-300 font-serif font-bold text-xl shadow-md group-hover:border-gold-300 transition-all duration-300">
-            TFDW
+          {/* Logo Image extracted from user brand asset */}
+          <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-purple-300 shadow-md group-hover:border-purple-500 transition-all duration-300 shrink-0 bg-white p-0.5">
+            <img 
+              src="/logo.png" 
+              alt="The Future Destined Woman Logo" 
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
           <div>
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-plum-950 block leading-none">
+            <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-purple-950 block leading-none group-hover:text-purple-800 transition-colors">
               The Future Destined Woman
             </span>
-            <span className="text-[10px] tracking-[0.25em] uppercase text-gold-600 font-semibold block mt-1">
-              Empowerment & Purpose
+            <span className="text-[10px] tracking-[0.25em] uppercase text-purple-800 font-bold block mt-1">
+              Empowerment · Advocacy · Leadership
             </span>
           </div>
         </button>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-1 bg-white/50 backdrop-blur-md px-4 py-1.5 rounded-full border border-plum-100 shadow-sm">
+        <nav className="hidden lg:flex items-center space-x-1 bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-purple-200/80 shadow-sm">
           {navLinks.map((link) => {
             const isActive = currentPath === link.path;
             return (
@@ -65,8 +70,8 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
                 onClick={() => handleNavClick(link.path)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
                   isActive 
-                    ? 'bg-plum-800 text-gold-300 shadow-md font-bold' 
-                    : 'text-plum-900 hover:text-plum-700 hover:bg-plum-50/80'
+                    ? 'bg-purple-900 text-white shadow-md font-bold' 
+                    : 'text-purple-950 hover:text-purple-800 hover:bg-purple-50'
                 }`}
               >
                 {link.label}
@@ -75,25 +80,25 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
           })}
         </nav>
 
-        {/* Desktop CTA Action Button */}
-        <div className="hidden sm:flex items-center space-x-3">
+        {/* Desktop CTA Action Buttons */}
+        <div className="hidden sm:flex items-center space-x-2.5">
           <button
             onClick={() => openMagazineModal()}
-            className="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold tracking-wider text-plum-900 bg-gold-400 hover:bg-gold-300 shadow-md hover:shadow-luxury transition-all duration-300 transform hover:-translate-y-0.5"
+            className="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold tracking-wider text-white bg-purple-900 hover:bg-purple-950 shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-purple-700 cursor-pointer"
           >
-            <BookOpen className="w-3.5 h-3.5 mr-2 text-plum-900 group-hover:rotate-12 transition-transform" />
-            <span>Latest Magazine</span>
-            <span className="ml-1.5 px-1.5 py-0.5 rounded-full bg-plum-900 text-gold-300 text-[9px] uppercase tracking-widest font-black">
+            <BookOpen className="w-3.5 h-3.5 mr-2 text-purple-200 group-hover:rotate-12 transition-transform" />
+            <span>Latest Publication</span>
+            <span className="ml-1.5 px-1.5 py-0.5 rounded-full bg-white text-purple-950 text-[9px] uppercase tracking-widest font-black">
               PDF
             </span>
           </button>
         </div>
 
         {/* Mobile Hamburger Toggle */}
-        <div className="flex lg:hidden items-center">
+        <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-full text-plum-900 hover:bg-plum-100/50 transition-colors focus:outline-none"
+            className="p-2 rounded-full text-purple-950 hover:bg-purple-100/50 transition-colors focus:outline-none"
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -104,7 +109,7 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[70px] bg-cream-100/98 backdrop-blur-xl border-b border-gold-400/20 shadow-2xl p-6 animate-in slide-in-from-top duration-300">
+        <div className="lg:hidden fixed inset-x-0 top-[68px] bg-purple-50/98 backdrop-blur-xl border-b border-gold-400/20 shadow-2xl p-6 animate-in slide-in-from-top duration-300">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => {
               const isActive = currentPath === link.path;
@@ -114,31 +119,31 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
                   onClick={() => handleNavClick(link.path)}
                   className={`w-full text-left px-5 py-3 rounded-2xl font-serif text-lg font-bold transition-all ${
                     isActive 
-                      ? 'plum-gradient-bg text-gold-300 shadow-lg' 
-                      : 'text-plum-900 hover:bg-plum-50'
+                      ? 'purple-gradient-bg text-gold-300 shadow-lg' 
+                      : 'text-purple-950 hover:bg-purple-100/60'
                   }`}
                 >
                   {link.label}
                 </button>
               );
             })}
-            <div className="pt-4 border-t border-plum-100 flex flex-col gap-3">
+            <div className="pt-4 border-t border-purple-200/60 flex flex-col gap-3">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   openMagazineModal();
                 }}
-                className="w-full py-3.5 rounded-full bg-gold-400 text-plum-900 font-bold text-sm shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-full bg-gold-400 text-purple-950 font-bold text-sm shadow-md flex items-center justify-center gap-2"
               >
                 <BookOpen className="w-4 h-4" />
-                <span>Download Biannual Issue PDF</span>
+                <span>Read Publication PDF</span>
               </button>
               <button
                 onClick={() => handleNavClick('get-involved')}
-                className="w-full py-3.5 rounded-full plum-gradient-bg text-gold-300 font-bold text-sm shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-full purple-gradient-bg text-gold-300 font-bold text-sm shadow-md flex items-center justify-center gap-2"
               >
                 <Heart className="w-4 h-4 text-gold-400" />
-                <span>Join Movement</span>
+                <span>Join Global Movement</span>
               </button>
             </div>
           </div>
@@ -147,3 +152,4 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
     </header>
   );
 }
+

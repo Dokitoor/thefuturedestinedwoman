@@ -19,14 +19,14 @@ export default function Magazine({ openMagazineModal, showToast }) {
     <div className="pt-28 pb-20 space-y-20">
       
       {/* 1. HEADER SECTION */}
-      <section className="bg-cream-100 py-16 border-b border-plum-100">
+      <section className="bg-purple-50/50 py-16 border-b border-purple-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100 border border-gold-400/30 text-plum-900 text-xs font-bold tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100 border border-gold-400/40 text-purple-950 text-xs font-extrabold tracking-widest uppercase">
             <BookOpen className="w-3.5 h-3.5 text-gold-600" />
             <span>Biannual Luxury Publication</span>
           </div>
 
-          <h1 className="font-serif text-5xl sm:text-6xl font-extrabold text-plum-950 tracking-tight">
+          <h1 className="font-serif text-5xl sm:text-6xl font-extrabold text-purple-950 tracking-tight">
             The Destined Woman Magazine
           </h1>
 
@@ -46,19 +46,19 @@ export default function Magazine({ openMagazineModal, showToast }) {
           <div className="lg:col-span-5 book-perspective flex justify-center">
             <div 
               onClick={() => openMagazineModal(0)}
-              className="book-card cursor-pointer relative max-w-xs rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-400/40"
+              className="book-card cursor-pointer relative max-w-xs rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-400/40 group"
             >
               <img
                 src={MAGAZINE_EDITIONS[0].coverImage}
                 alt={MAGAZINE_EDITIONS[0].title}
                 className="w-full h-[420px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-plum-950/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-purple-950/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="px-2.5 py-0.5 rounded-full bg-gold-400 text-plum-950 text-[9px] font-black uppercase tracking-widest inline-block mb-1">
-                  Click to Read Sample
+                <span className="px-3 py-1 rounded-full bg-purple-900 text-white text-[9px] font-extrabold uppercase tracking-widest inline-block mb-1 shadow-md border border-purple-300/40">
+                  Click to Download PDF Issue
                 </span>
-                <h4 className="font-serif text-xl font-bold">
+                <h4 className="font-serif text-xl font-bold text-white">
                   {MAGAZINE_EDITIONS[0].editionNumber} • Current Issue
                 </h4>
               </div>
@@ -66,17 +66,17 @@ export default function Magazine({ openMagazineModal, showToast }) {
           </div>
 
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-gold-600 uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-xs font-mono font-extrabold text-purple-700 uppercase tracking-widest">
               <span>{MAGAZINE_EDITIONS[0].editionNumber}</span>
               <span>•</span>
               <span>{MAGAZINE_EDITIONS[0].releaseDate}</span>
             </div>
 
-            <h2 className="font-serif text-4xl sm:text-5xl font-extrabold text-plum-950">
+            <h2 className="font-serif text-4xl sm:text-5xl font-extrabold text-purple-950">
               {MAGAZINE_EDITIONS[0].title}
             </h2>
 
-            <p className="text-sm text-gold-700 font-serif italic text-lg">
+            <p className="text-sm text-purple-800 font-serif italic text-lg font-bold">
               "{MAGAZINE_EDITIONS[0].theme}"
             </p>
 
@@ -84,12 +84,12 @@ export default function Magazine({ openMagazineModal, showToast }) {
               {MAGAZINE_EDITIONS[0].synopsis}
             </p>
 
-            <div className="space-y-2 pt-2 border-t border-plum-100">
-              <span className="text-xs font-bold text-plum-900 block">Featured Articles & Essays:</span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-onyx-800">
+            <div className="space-y-2 pt-2 border-t border-purple-100">
+              <span className="text-xs font-extrabold text-purple-950 block">Featured Articles & Essays:</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-onyx-800 font-medium">
                 {MAGAZINE_EDITIONS[0].articles.map((art, idx) => (
                   <div key={idx} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-gold-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-purple-700 shrink-0" />
                     <span>{art.title}</span>
                   </div>
                 ))}
@@ -99,18 +99,10 @@ export default function Magazine({ openMagazineModal, showToast }) {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => openMagazineModal(0)}
-                className="px-8 py-3.5 rounded-full bg-gold-400 hover:bg-gold-300 text-plum-950 font-bold text-xs shadow-luxury transition-all flex items-center gap-2"
+                className="px-8 py-3.5 rounded-full bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-xs shadow-luxury transition-all flex items-center gap-2 cursor-pointer border border-purple-700"
               >
-                <Download className="w-4 h-4 text-plum-950" />
+                <Download className="w-4 h-4 text-white" />
                 <span>Download Free PDF Issue</span>
-              </button>
-
-              <button
-                onClick={() => openMagazineModal(0)}
-                className="px-6 py-3.5 rounded-full bg-white border border-plum-200 text-plum-900 font-bold text-xs hover:bg-plum-50 transition-all flex items-center gap-2"
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>Open Digital Reader</span>
               </button>
             </div>
           </div>
@@ -125,10 +117,10 @@ export default function Magazine({ openMagazineModal, showToast }) {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono font-bold text-gold-600 uppercase tracking-widest">
+                  <span className="text-xs font-mono font-extrabold text-gold-600 uppercase tracking-widest">
                     {ed.editionNumber}
                   </span>
-                  <span className="text-xs text-onyx-800/60 font-mono">
+                  <span className="text-xs text-onyx-800/70 font-mono font-bold">
                     {ed.releaseDate}
                   </span>
                 </div>
@@ -145,23 +137,23 @@ export default function Magazine({ openMagazineModal, showToast }) {
                     />
                   </div>
                   <div>
-                    <h3 className="font-serif text-2xl font-bold text-plum-950 mb-1">
+                    <h3 className="font-serif text-2xl font-bold text-purple-950 mb-1">
                       {ed.title}
                     </h3>
-                    <p className="text-xs text-gold-700 italic font-serif mb-2">
+                    <p className="text-xs text-gold-700 italic font-serif mb-2 font-bold">
                       "{ed.theme}"
                     </p>
-                    <p className="text-xs text-onyx-800/80 leading-relaxed font-light">
+                    <p className="text-xs text-onyx-800 leading-relaxed font-light">
                       {ed.synopsis}
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-plum-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-purple-100 flex items-center justify-between">
                 <button
                   onClick={() => openMagazineModal(idx + 1)}
-                  className="px-6 py-2.5 rounded-full bg-plum-900 hover:bg-plum-800 text-gold-300 font-bold text-xs shadow-md transition-all flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full bg-purple-950 hover:bg-purple-800 text-gold-300 font-extrabold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5 text-gold-400" />
                   <span>Download Issue PDF</span>
@@ -175,16 +167,16 @@ export default function Magazine({ openMagazineModal, showToast }) {
 
       {/* 3. RELEASE ALERT SUBSCRIPTION CARD */}
       <section className="max-w-4xl mx-auto px-4">
-        <div className="plum-gradient-bg text-cream-100 rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-gold-400/40 text-center space-y-6 relative overflow-hidden">
+        <div className="purple-gradient-bg text-purple-50 rounded-3xl p-8 sm:p-12 shadow-2xl border-2 border-gold-400/40 text-center space-y-6 relative overflow-hidden">
           <div className="w-12 h-12 rounded-full bg-gold-400/20 border border-gold-400 flex items-center justify-center text-gold-300 mx-auto">
             <Sparkles className="w-6 h-6 animate-pulse" />
           </div>
 
-          <h3 className="font-serif text-3xl sm:text-4xl font-bold text-cream-50">
+          <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white">
             Never Miss a 2-Year Biannual Edition
           </h3>
 
-          <p className="text-sm text-cream-200/90 font-light max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm text-purple-200/90 font-light max-w-xl mx-auto leading-relaxed">
             Be notified immediately when Edition 4 is published. Get exclusive subscriber access to downloadable tools, keynote audio excerpts, and bonus essays.
           </p>
 
@@ -194,12 +186,12 @@ export default function Magazine({ openMagazineModal, showToast }) {
               value={alertEmail}
               onChange={(e) => setAlertEmail(e.target.value)}
               placeholder="Enter your email for release alerts"
-              className="flex-1 px-5 py-3 rounded-full bg-plum-950/90 border border-gold-400/40 text-cream-100 placeholder-cream-300/50 text-xs focus:outline-none focus:border-gold-300"
+              className="flex-1 px-5 py-3 rounded-full bg-purple-950/90 border border-gold-400/40 text-purple-100 placeholder-purple-300/50 text-xs focus:outline-none focus:border-gold-300"
               required
             />
             <button
               type="submit"
-              className="px-7 py-3 rounded-full bg-gold-400 text-plum-950 font-bold text-xs hover:bg-gold-300 transition-colors shadow-md shrink-0 flex items-center justify-center gap-2"
+              className="px-7 py-3 rounded-full bg-gold-400 text-purple-950 font-extrabold text-xs hover:bg-gold-300 transition-colors shadow-md shrink-0 flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>Notify Me</span>
               <Send className="w-3.5 h-3.5" />
@@ -211,3 +203,4 @@ export default function Magazine({ openMagazineModal, showToast }) {
     </div>
   );
 }
+

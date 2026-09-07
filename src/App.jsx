@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ToastNotification from './components/ToastNotification';
 import MagazineModal from './components/MagazineModal';
+import WelcomeIntro from './components/WelcomeIntro';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -16,6 +17,7 @@ export default function App() {
   const [currentPath, setCurrentPath] = useState('home');
   const [toast, setToast] = useState(null);
   const [activeModalEdition, setActiveModalEdition] = useState(null);
+  const [showIntro, setShowIntro] = useState(true);
 
   // Sync with browser hash router
   useEffect(() => {
@@ -51,8 +53,19 @@ export default function App() {
     setActiveModalEdition(null);
   };
 
+  const handleReplayIntro = () => {
+    setShowIntro(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-cream-100 text-onyx-900 selection:bg-gold-400/30 selection:text-plum-900">
+    <div className="min-h-screen flex flex-col justify-between bg-purple-50/40 text-onyx-900 selection:bg-gold-400/30 selection:text-purple-950">
+      
+      {/* Welcome Opening Animation (IRMEJA Style) */}
+      {showIntro && (
+        <WelcomeIntro onComplete={() => setShowIntro(false)} />
+      )}
+
       {/* Top Navbar */}
       <Navbar 
         currentPath={currentPath} 
@@ -117,3 +130,4 @@ export default function App() {
     </div>
   );
 }
+

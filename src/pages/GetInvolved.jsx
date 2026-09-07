@@ -47,7 +47,7 @@ export default function GetInvolved({ showToast }) {
         particleCount: 70,
         spread: 60,
         origin: { y: 0.7 },
-        colors: ['#D4AF37', '#581C38', '#C5A059']
+        colors: ['#D4AF37', '#4C015C', '#C88536']
       });
     } catch (err) {}
 
@@ -69,14 +69,14 @@ export default function GetInvolved({ showToast }) {
     <div className="pt-28 pb-20 space-y-20">
       
       {/* 1. HEADER SECTION */}
-      <section className="bg-cream-100 py-16 border-b border-plum-100">
+      <section className="bg-purple-50/50 py-16 border-b border-purple-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100 border border-gold-400/30 text-plum-900 text-xs font-bold tracking-widest uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-100 border border-gold-400/40 text-purple-950 text-xs font-extrabold tracking-widest uppercase">
             <Heart className="w-3.5 h-3.5 text-gold-600" />
             <span>Join The Movement</span>
           </div>
 
-          <h1 className="font-serif text-5xl sm:text-6xl font-extrabold text-plum-950 tracking-tight">
+          <h1 className="font-serif text-5xl sm:text-6xl font-extrabold text-purple-950 tracking-tight">
             Be Part of the Destiny.
           </h1>
 
@@ -86,7 +86,7 @@ export default function GetInvolved({ showToast }) {
         </div>
       </section>
 
-      {/* 2. THREE DIRECT PATHWAYS */}
+      {/* 2. THREE DIRECT PATHWAYS CARDS (HIGH CONTRAST) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pathways.map((path) => {
@@ -103,45 +103,47 @@ export default function GetInvolved({ showToast }) {
                 }}
                 className={`rounded-3xl p-8 shadow-editorial border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'plum-gradient-bg text-cream-100 border-gold-400 shadow-luxury scale-105'
-                    : 'bg-white text-plum-950 border-gold-400/20 hover:border-gold-400'
+                    ? 'purple-gradient-bg text-white border-gold-400 shadow-luxury scale-105 ring-2 ring-gold-400/50'
+                    : 'bg-white text-purple-950 border-gold-400/30 hover:border-gold-400 shadow-sm'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${
-                      isSelected ? 'bg-gold-400 text-plum-950' : 'plum-gradient-bg text-gold-300'
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-md ${
+                      isSelected ? 'bg-gold-400 text-purple-950 font-bold' : 'purple-gradient-bg text-gold-300'
                     }`}>
                       <IconComp className="w-6 h-6" />
                     </div>
-                    <span className={`text-xs font-mono font-bold uppercase tracking-widest ${
-                      isSelected ? 'text-gold-400' : 'text-gold-600'
+                    <span className={`text-xs font-mono font-extrabold uppercase tracking-widest ${
+                      isSelected ? 'text-gold-300' : 'text-gold-700'
                     }`}>
                       {path.badge}
                     </span>
                   </div>
 
-                  <span className={`text-[10px] uppercase font-bold tracking-wider block mb-1 ${
-                    isSelected ? 'text-gold-300' : 'text-gold-600'
+                  <span className={`text-[11px] uppercase font-extrabold tracking-wider block mb-1.5 ${
+                    isSelected ? 'text-gold-300' : 'text-purple-800'
                   }`}>
                     {path.subtitle}
                   </span>
 
-                  <h3 className="font-serif text-2xl font-bold mb-3">
+                  <h3 className={`font-serif text-2xl font-bold mb-3 leading-snug ${
+                    isSelected ? 'text-white' : 'text-purple-950'
+                  }`}>
                     {path.title}
                   </h3>
 
-                  <p className={`text-xs leading-relaxed font-light ${
-                    isSelected ? 'text-cream-200' : 'text-onyx-800/80'
+                  <p className={`text-xs leading-relaxed font-normal ${
+                    isSelected ? 'text-purple-100' : 'text-onyx-800'
                   }`}>
                     {path.description}
                   </p>
                 </div>
 
-                <div className={`mt-6 pt-4 border-t text-xs font-bold flex items-center justify-between ${
-                  isSelected ? 'border-gold-400/30 text-gold-300' : 'border-plum-100 text-plum-900'
+                <div className={`mt-8 pt-4 border-t text-xs font-extrabold flex items-center justify-between ${
+                  isSelected ? 'border-gold-400/40 text-gold-300' : 'border-purple-100 text-purple-950'
                 }`}>
-                  <span>Select Pathway</span>
+                  <span>{isSelected ? 'Selected Pathway ✓' : 'Select Pathway'}</span>
                   <CheckCircle2 className={`w-4 h-4 ${isSelected ? 'text-gold-400' : 'text-gold-600'}`} />
                 </div>
               </div>
@@ -155,14 +157,14 @@ export default function GetInvolved({ showToast }) {
         <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-luxury border-2 border-gold-400/30 space-y-8">
           
           <div className="text-center space-y-2">
-            <span className="text-xs font-bold uppercase tracking-[0.25em] text-gold-600">
+            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-gold-600">
               Get Connected
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-plum-950">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-purple-950">
               Complete Your Engagement Interest
             </h2>
-            <p className="text-xs text-onyx-800/80 font-light max-w-md mx-auto">
-              Selected Pathway: <strong className="text-plum-900 font-bold">{formData.interestCategory}</strong>
+            <p className="text-xs text-onyx-800 font-medium max-w-md mx-auto">
+              Selected Pathway: <strong className="text-purple-950 font-extrabold bg-gold-100 px-2.5 py-1 rounded-full border border-gold-400/40 inline-block ml-1">{formData.interestCategory}</strong>
             </p>
           </div>
 
@@ -170,7 +172,7 @@ export default function GetInvolved({ showToast }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               <div>
-                <label className="text-xs font-bold text-plum-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
+                <label className="text-xs font-bold text-purple-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
                   <User className="w-3.5 h-3.5 text-gold-600" />
                   <span>Full Name *</span>
                 </label>
@@ -180,12 +182,12 @@ export default function GetInvolved({ showToast }) {
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                   placeholder="e.g. Victoria Sterling"
-                  className="w-full px-4 py-3 rounded-xl border border-plum-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500"
+                  className="w-full px-4 py-3 rounded-xl border border-purple-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-purple-50/30"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-bold text-plum-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
+                <label className="text-xs font-bold text-purple-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
                   <Mail className="w-3.5 h-3.5 text-gold-600" />
                   <span>Email Address *</span>
                 </label>
@@ -195,12 +197,12 @@ export default function GetInvolved({ showToast }) {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="victoria@example.com"
-                  className="w-full px-4 py-3 rounded-xl border border-plum-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500"
+                  className="w-full px-4 py-3 rounded-xl border border-purple-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-purple-50/30"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-bold text-plum-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
+                <label className="text-xs font-bold text-purple-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-gold-600" />
                   <span>Phone / WhatsApp *</span>
                 </label>
@@ -210,19 +212,19 @@ export default function GetInvolved({ showToast }) {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+1 (555) 000-0000"
-                  className="w-full px-4 py-3 rounded-xl border border-plum-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500"
+                  className="w-full px-4 py-3 rounded-xl border border-purple-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-purple-50/30"
                 />
               </div>
 
               <div>
-                <label className="text-xs font-bold text-plum-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
+                <label className="text-xs font-bold text-purple-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-gold-600" />
                   <span>Interest Category *</span>
                 </label>
                 <select
                   value={formData.interestCategory}
                   onChange={(e) => setFormData({ ...formData, interestCategory: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-plum-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-white"
+                  className="w-full px-4 py-3 rounded-xl border border-purple-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-white font-medium"
                 >
                   <option value="Mentee / Program Participant">Mentee / Program Participant</option>
                   <option value="Volunteer / Mentor">Volunteer / Mentor</option>
@@ -235,7 +237,7 @@ export default function GetInvolved({ showToast }) {
             </div>
 
             <div>
-              <label className="text-xs font-bold text-plum-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
+              <label className="text-xs font-bold text-purple-950 uppercase tracking-wide block mb-1.5 flex items-center gap-1.5">
                 <MessageSquare className="w-3.5 h-3.5 text-gold-600" />
                 <span>Your Message or Vision Statement</span>
               </label>
@@ -244,15 +246,15 @@ export default function GetInvolved({ showToast }) {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Tell us about yourself, your background, or how you would like to partner with TFDW..."
-                className="w-full px-4 py-3 rounded-xl border border-plum-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-purple-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-purple-50/30 resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 rounded-xl bg-gold-400 hover:bg-gold-300 text-plum-950 font-bold text-xs shadow-luxury transition-all duration-300 flex items-center justify-center gap-2 transform active:scale-95"
+              className="w-full py-4 rounded-xl bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-xs shadow-luxury transition-all duration-300 flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer border border-purple-700"
             >
-              <Send className="w-4 h-4 text-plum-950" />
+              <Send className="w-4 h-4 text-white" />
               <span>Submit Engagement Request</span>
             </button>
           </form>
@@ -263,3 +265,4 @@ export default function GetInvolved({ showToast }) {
     </div>
   );
 }
+

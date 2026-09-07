@@ -5,8 +5,9 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: #1F1F1F;
-    background-color: #FAF8F5;
+    color: #12021A;
+    background-color: #FAF5FF;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, .font-serif-display {
@@ -19,37 +20,62 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF8F5;
+  background: #FAF5FF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #581C38;
+  background: #4C015C;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4A1525;
+  background: #6B1D8C;
 }
 
-/* Luxury Glassmorphism */
+/* Luxury Glassmorphism & Logo Gradients */
 .glass-nav {
-  background: rgba(250, 248, 245, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  background: rgba(250, 245, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.glass-plum {
-  background: rgba(74, 21, 37, 0.92);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.22);
 }
 
-/* 3D Book Perspective Tilt */
+.glass-purple {
+  background: rgba(76, 1, 92, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+/* Logo Color Gradients */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.purple-gradient-text {
+  background: linear-gradient(135deg, #84248F 0%, #4C015C 50%, #12021A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.purple-gradient-bg, .plum-gradient-bg {
+  background: linear-gradient(135deg, #4C015C 0%, #6B1D8C 50%, #12021A 100%) !important;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #D4AF37 0%, #C88536 100%);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+}
+
+/* 3D Perspective Tilt */
 .book-perspective {
   perspective: 1200px;
 }
@@ -62,22 +88,7 @@
 
 .book-card:hover {
   transform: rotateY(0deg) rotateX(0deg) scale(1.02);
-  box-shadow: -15px 25px 40px -10px rgba(56, 13, 27, 0.25);
-}
-
-/* Editorial Line Accents */
-.gold-gradient-text {
-  background: linear-gradient(135deg, #D4AF37 0%, #F5EFD7 50%, #C5A059 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.plum-gradient-bg {
-  background: linear-gradient(135deg, #4A1525 0%, #581C38 50%, #380D1B 100%);
-}
-
-.gold-border-glow {
-  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+  box-shadow: -15px 25px 40px -10px rgba(76, 1, 92, 0.35);
 }
 
 /* Smooth Image Hover Zoom */
@@ -90,3 +101,47 @@
 .zoom-container:hover img {
   transform: scale(1.06);
 }
+
+/* Ticker Marquee Tapes for IRMEJA Opening */
+.ticker-tape {
+  display: flex;
+  width: max-content;
+  animation: ticker-slide 25s linear infinite;
+}
+
+.ticker-tape-reverse {
+  display: flex;
+  width: max-content;
+  animation: ticker-slide-reverse 25s linear infinite;
+}
+
+@keyframes ticker-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes ticker-slide-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Custom 2-Column Grid Layout Utility */
+.grid-2l {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .grid-2l {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+  .grid-2l-wide-left {
+    grid-template-columns: 1.25fr 0.75fr;
+  }
+  .grid-2l-wide-right {
+    grid-template-columns: 0.75fr 1.25fr;
+  }
+}
+
