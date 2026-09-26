@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Download, BookOpen, CheckCircle2, Sparkles, FileText, User, Mail, ArrowRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-export default function MagazineModal({ edition, onClose, showToast }) {
+export default function MagazineModal({ edition, onClose, showToast, onOpenReader }) {
   const [subscriberName, setSubscriberName] = useState('');
   const [subscriberEmail, setSubscriberEmail] = useState('');
   const [downloadSuccess, setDownloadSuccess] = useState(false);
@@ -142,6 +142,27 @@ export default function MagazineModal({ edition, onClose, showToast }) {
                     <span>Download Publication PDF</span>
                   </button>
                 </form>
+
+                {onOpenReader && (
+                  <div className="pt-2">
+                    <div className="relative flex py-2 items-center">
+                      <div className="flex-grow border-t border-purple-200"></div>
+                      <span className="flex-shrink mx-3 text-[10px] text-purple-700 font-bold uppercase tracking-wider">or read right here</span>
+                      <div className="flex-grow border-t border-purple-200"></div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        onOpenReader(edition);
+                      }}
+                      className="w-full py-3 rounded-xl bg-gold-400 hover:bg-gold-300 text-purple-950 font-extrabold text-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer border border-gold-500/40"
+                    >
+                      <Sparkles className="w-4 h-4 text-purple-900" />
+                      <span>Open Interactive Online Reader</span>
+                    </button>
+                  </div>
+                )}
               </div>
 
             </div>
@@ -162,12 +183,26 @@ export default function MagazineModal({ edition, onClose, showToast }) {
               </div>
 
               <div className="pt-4 flex flex-col items-center gap-3">
+                {onOpenReader && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      onOpenReader(edition);
+                    }}
+                    className="px-7 py-3 rounded-full bg-gold-400 text-purple-950 font-extrabold text-xs shadow-md hover:bg-gold-300 transition-all inline-flex items-center gap-2 cursor-pointer border border-gold-500/40"
+                  >
+                    <Sparkles className="w-4 h-4 text-purple-900" />
+                    <span>Open in Interactive Online Reader</span>
+                  </button>
+                )}
+
                 <a
                   href={edition.pdfUrl || '/edition_3_sample.pdf'}
                   download={edition.downloadFileName || `${edition.title}.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full bg-purple-900 text-white font-bold text-xs shadow-md hover:bg-purple-950 transition-all inline-flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-full bg-purple-900 text-white font-bold text-xs shadow-md hover:bg-purple-950 transition-all inline-flex items-center gap-2"
                 >
                   <Download className="w-4 h-4" />
                   <span>Click Here if Download Didn't Start Automatically</span>

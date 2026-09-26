@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ToastNotification from './components/ToastNotification';
 import MagazineModal from './components/MagazineModal';
+import MagazineReader from './components/MagazineReader';
 import WelcomeIntro from './components/WelcomeIntro';
 
 import Home from './pages/Home';
@@ -17,6 +18,7 @@ export default function App() {
   const [currentPath, setCurrentPath] = useState('home');
   const [toast, setToast] = useState(null);
   const [activeModalEdition, setActiveModalEdition] = useState(null);
+  const [activeReaderEditionIndex, setActiveReaderEditionIndex] = useState(null);
   const [showIntro, setShowIntro] = useState(true);
 
   // Sync with browser hash router
@@ -53,6 +55,14 @@ export default function App() {
     setActiveModalEdition(null);
   };
 
+  const openMagazineReader = (index = 0) => {
+    setActiveReaderEditionIndex(index);
+  };
+
+  const closeMagazineReader = () => {
+    setActiveReaderEditionIndex(null);
+  };
+
   const handleReplayIntro = () => {
     setShowIntro(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,7 +80,8 @@ export default function App() {
       <Navbar 
         currentPath={currentPath} 
         navigateTo={navigateTo} 
-        openMagazineModal={openMagazineModal} 
+        openMagazineModal={openMagazineModal}
+        openMagazineReader={openMagazineReader}
       />
 
       {/* Main Page View Renderer */}
@@ -78,7 +89,8 @@ export default function App() {
         {currentPath === 'home' && (
           <Home 
             navigateTo={navigateTo} 
-            openMagazineModal={openMagazineModal} 
+            openMagazineModal={openMagazineModal}
+            openMagazineReader={openMagazineReader}
             showToast={showToast} 
           />
         )}
@@ -95,7 +107,8 @@ export default function App() {
         )}
         {currentPath === 'magazine' && (
           <Magazine 
-            openMagazineModal={openMagazineModal} 
+            openMagazineModal={openMagazineModal}
+            openMagazineReader={openMagazineReader}
             showToast={showToast} 
           />
         )}
@@ -110,15 +123,29 @@ export default function App() {
       <Footer 
         navigateTo={navigateTo} 
         showToast={showToast} 
-        openMagazineModal={openMagazineModal} 
+        openMagazineModal={openMagazineModal}
+        openMagazineReader={openMagazineReader}
       />
 
-      {/* Interactive PDF & Reader Modal */}
+      {/* Interactive PDF & Download Modal */}
       {activeModalEdition && (
         <MagazineModal 
           edition={activeModalEdition} 
           onClose={closeMagazineModal} 
-          showToast={showToast} 
+          showToast={showToast}
+          onOpenReader={(ed) => {
+            const idx = MAGAZINE_EDITIONS.findIndex(e => e.id === ed.id);
+            openMagazineReader(idx >= 0 ? idx : 0);
+          }}
+        />
+      )}
+
+      {/* Online Interactive Magazine Reader */}
+      {activeReaderEditionIndex !== null && (
+        <MagazineReader
+          initialEditionIndex={activeReaderEditionIndex}
+          onClose={closeMagazineReader}
+          showToast={showToast}
         />
       )}
 

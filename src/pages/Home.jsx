@@ -4,7 +4,7 @@ import MetricCounter from '../components/MetricCounter';
 import CoreValuesMarquee from '../components/CoreValuesMarquee';
 import { MAGAZINE_EDITIONS } from '../data/magazineData';
 
-export default function Home({ navigateTo, openMagazineModal, showToast }) {
+export default function Home({ navigateTo, openMagazineModal, openMagazineReader, showToast }) {
   const latestMagazine = MAGAZINE_EDITIONS[0];
 
   const pillars = [
@@ -80,11 +80,11 @@ export default function Home({ navigateTo, openMagazineModal, showToast }) {
                 </button>
 
                 <button
-                  onClick={() => openMagazineModal(0)}
-                  className="px-8 py-4 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-extrabold text-sm tracking-wide border-2 border-purple-950 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm"
+                  onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))}
+                  className="px-8 py-4 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-extrabold text-sm tracking-wide border-2 border-purple-950 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm group"
                 >
-                  <BookOpen className="w-4 h-4 text-purple-800" />
-                  <span>Read Publication PDF</span>
+                  <BookOpen className="w-4 h-4 text-purple-800 group-hover:rotate-12 transition-transform" />
+                  <span>Read Magazine Online</span>
                 </button>
               </div>
 
@@ -320,7 +320,7 @@ export default function Home({ navigateTo, openMagazineModal, showToast }) {
             {/* LEFT COLUMN: 3D Perspective Book Cover (5 Cols) */}
             <div className="lg:col-span-5 book-perspective flex justify-center">
               <div 
-                onClick={() => openMagazineModal(0)}
+                onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))}
                 className="book-card cursor-pointer relative max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-400/40 group"
               >
                 <img
@@ -331,8 +331,9 @@ export default function Home({ navigateTo, openMagazineModal, showToast }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-950/85 via-transparent to-transparent opacity-85 group-hover:opacity-60 transition-opacity" />
                 
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="px-3.5 py-1 rounded-full bg-purple-900 text-white text-[10px] font-extrabold uppercase tracking-widest inline-block mb-2 shadow-md border border-purple-300/40">
-                    Click to Download PDF Edition
+                  <span className="px-3.5 py-1 rounded-full bg-gold-400 text-purple-950 text-[10px] font-extrabold uppercase tracking-widest inline-flex items-center gap-1.5 mb-2 shadow-md border border-gold-300">
+                    <Sparkles className="w-3.5 h-3.5 text-purple-950" />
+                    <span>Click to Read Online</span>
                   </span>
                   <h4 className="font-serif text-2xl font-bold">
                     Edition 3 • Flagship Publication
@@ -376,18 +377,25 @@ export default function Home({ navigateTo, openMagazineModal, showToast }) {
               {/* Action Buttons */}
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <button
-                  onClick={() => openMagazineModal(0)}
-                  className="px-7 py-3.5 rounded-full bg-purple-950 hover:bg-purple-800 text-gold-300 font-bold text-xs tracking-wider shadow-luxury transition-all flex items-center gap-2 cursor-pointer"
+                  onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))}
+                  className="px-7 py-3.5 rounded-full bg-purple-950 hover:bg-purple-800 text-gold-300 font-bold text-xs tracking-wider shadow-luxury transition-all flex items-center gap-2 cursor-pointer hover:scale-102"
                 >
                   <BookOpen className="w-4 h-4 text-gold-400" />
-                  <span>Preview & Read PDF</span>
+                  <span>Read Online (Interactive Reader)</span>
+                </button>
+
+                <button
+                  onClick={() => openMagazineModal(0)}
+                  className="px-6 py-3.5 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-bold text-xs tracking-wider border border-purple-300 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <span>Download PDF</span>
                 </button>
 
                 <button
                   onClick={() => navigateTo('magazine')}
-                  className="px-7 py-3.5 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-bold text-xs tracking-wider border border-purple-300 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3.5 rounded-full bg-purple-50 hover:bg-purple-100 text-purple-900 font-bold text-xs tracking-wider border border-purple-200 transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <span>View All 3 Editions</span>
+                  <span>All 3 Editions</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

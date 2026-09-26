@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, Send, Sparkles, Heart, Instagram, Linkedin, Twitter } from 'lucide-react';
 
-export default function Footer({ navigateTo, showToast, openMagazineModal }) {
+export default function Footer({ navigateTo, showToast, openMagazineModal, openMagazineReader }) {
   const [email, setEmail] = useState('');
 
   const handleNewsletterSubmit = (e) => {
@@ -88,21 +88,21 @@ export default function Footer({ navigateTo, showToast, openMagazineModal }) {
             </h4>
             <ul className="space-y-2.5 text-sm text-purple-200/80">
               <li>
-                <button onClick={() => openMagazineModal(0)} className="hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                <button onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))} className="hover:text-gold-300 transition-colors flex items-center gap-1.5 cursor-pointer">
                   <BookOpen className="w-3.5 h-3.5 text-gold-400" />
-                  <span>Edition 3 (Latest PDF)</span>
+                  <span>Edition 3 (Read Online)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => openMagazineModal(1)} className="hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                <button onClick={() => (openMagazineReader ? openMagazineReader(1) : openMagazineModal(1))} className="hover:text-gold-300 transition-colors flex items-center gap-1.5 cursor-pointer">
                   <BookOpen className="w-3.5 h-3.5 text-gold-400" />
-                  <span>Edition 2 (Destined Greatness)</span>
+                  <span>Edition 2 (Read Online)</span>
                 </button>
               </li>
               <li>
-                <button onClick={() => openMagazineModal(2)} className="hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                <button onClick={() => (openMagazineReader ? openMagazineReader(2) : openMagazineModal(2))} className="hover:text-gold-300 transition-colors flex items-center gap-1.5 cursor-pointer">
                   <BookOpen className="w-3.5 h-3.5 text-gold-400" />
-                  <span>Edition 1 (Inaugural Issue)</span>
+                  <span>Edition 1 (Read Online)</span>
                 </button>
               </li>
             </ul>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MAGAZINE_EDITIONS } from '../data/magazineData';
 import { BookOpen, Download, Share2, Sparkles, Send, CheckCircle2, ArrowRight } from 'lucide-react';
 
-export default function Magazine({ openMagazineModal, showToast }) {
+export default function Magazine({ openMagazineModal, openMagazineReader, showToast }) {
   const [alertEmail, setAlertEmail] = useState('');
 
   const handleSubscribeAlert = (e) => {
@@ -45,7 +45,7 @@ export default function Magazine({ openMagazineModal, showToast }) {
 
           <div className="lg:col-span-5 book-perspective flex justify-center">
             <div 
-              onClick={() => openMagazineModal(0)}
+              onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))}
               className="book-card cursor-pointer relative max-w-xs rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-400/40 group"
             >
               <img
@@ -55,8 +55,9 @@ export default function Magazine({ openMagazineModal, showToast }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-purple-950/85 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <span className="px-3 py-1 rounded-full bg-purple-900 text-white text-[9px] font-extrabold uppercase tracking-widest inline-block mb-1 shadow-md border border-purple-300/40">
-                  Click to Download PDF Issue
+                <span className="px-3 py-1 rounded-full bg-gold-400 text-purple-950 text-[9px] font-extrabold uppercase tracking-widest inline-flex items-center gap-1 mb-1 shadow-md border border-gold-300">
+                  <Sparkles className="w-3 h-3 text-purple-950" />
+                  <span>Click to Read Online</span>
                 </span>
                 <h4 className="font-serif text-xl font-bold text-white">
                   {MAGAZINE_EDITIONS[0].editionNumber} • Current Issue
@@ -98,11 +99,19 @@ export default function Magazine({ openMagazineModal, showToast }) {
 
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <button
-                onClick={() => openMagazineModal(0)}
-                className="px-8 py-3.5 rounded-full bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-xs shadow-luxury transition-all flex items-center gap-2 cursor-pointer border border-purple-700"
+                onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))}
+                className="px-8 py-3.5 rounded-full bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-xs shadow-luxury transition-all flex items-center gap-2 cursor-pointer border border-purple-700 hover:scale-102"
               >
-                <Download className="w-4 h-4 text-white" />
-                <span>Download Free PDF Issue</span>
+                <BookOpen className="w-4 h-4 text-gold-300" />
+                <span>Read Online (Interactive Reader)</span>
+              </button>
+
+              <button
+                onClick={() => openMagazineModal(0)}
+                className="px-6 py-3.5 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-extrabold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer border border-purple-300"
+              >
+                <Download className="w-4 h-4 text-purple-800" />
+                <span>Download PDF</span>
               </button>
             </div>
           </div>
@@ -127,14 +136,17 @@ export default function Magazine({ openMagazineModal, showToast }) {
 
                 <div className="flex gap-6 items-start mb-6">
                   <div 
-                    onClick={() => openMagazineModal(idx + 1)}
-                    className="w-32 shrink-0 rounded-xl overflow-hidden shadow-md border-2 border-gold-400/30 cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => (openMagazineReader ? openMagazineReader(idx + 1) : openMagazineModal(idx + 1))}
+                    className="w-32 shrink-0 rounded-xl overflow-hidden shadow-md border-2 border-gold-400/30 cursor-pointer hover:scale-105 transition-transform group relative"
                   >
                     <img
                       src={ed.coverImage}
                       alt={ed.title}
                       className="w-full h-44 object-cover"
                     />
+                    <div className="absolute inset-0 bg-purple-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="text-[10px] text-white font-bold bg-purple-900/90 px-2 py-1 rounded">Read</span>
+                    </div>
                   </div>
                   <div>
                     <h3 className="font-serif text-2xl font-bold text-purple-950 mb-1">
@@ -150,13 +162,21 @@ export default function Magazine({ openMagazineModal, showToast }) {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-purple-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-purple-100 flex flex-wrap items-center justify-between gap-2">
+                <button
+                  onClick={() => (openMagazineReader ? openMagazineReader(idx + 1) : openMagazineModal(idx + 1))}
+                  className="px-5 py-2.5 rounded-full bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer border border-purple-700"
+                >
+                  <BookOpen className="w-3.5 h-3.5 text-gold-300" />
+                  <span>Read Online</span>
+                </button>
+
                 <button
                   onClick={() => openMagazineModal(idx + 1)}
-                  className="px-6 py-2.5 rounded-full bg-purple-950 hover:bg-purple-800 text-gold-300 font-extrabold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-2.5 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-bold text-xs shadow-sm transition-all flex items-center gap-1.5 cursor-pointer border border-purple-300"
                 >
-                  <Download className="w-3.5 h-3.5 text-gold-400" />
-                  <span>Download Issue PDF</span>
+                  <Download className="w-3.5 h-3.5 text-purple-800" />
+                  <span>Download PDF</span>
                 </button>
               </div>
             </div>

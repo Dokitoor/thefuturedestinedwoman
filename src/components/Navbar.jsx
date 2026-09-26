@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, BookOpen, Heart } from 'lucide-react';
 
-export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
+export default function Navbar({ currentPath, navigateTo, openMagazineModal, openMagazineReader }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -80,19 +80,7 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
           })}
         </nav>
 
-        {/* Desktop CTA Action Buttons */}
-        <div className="hidden sm:flex items-center space-x-2.5">
-          <button
-            onClick={() => openMagazineModal()}
-            className="group relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold tracking-wider text-white bg-purple-900 hover:bg-purple-950 shadow-md transition-all duration-300 transform hover:-translate-y-0.5 border border-purple-700 cursor-pointer"
-          >
-            <BookOpen className="w-3.5 h-3.5 mr-2 text-purple-200 group-hover:rotate-12 transition-transform" />
-            <span>Latest Publication</span>
-            <span className="ml-1.5 px-1.5 py-0.5 rounded-full bg-white text-purple-950 text-[9px] uppercase tracking-widest font-black">
-              PDF
-            </span>
-          </button>
-        </div>
+
 
         {/* Mobile Hamburger Toggle */}
         <div className="flex lg:hidden items-center gap-2">
@@ -128,16 +116,6 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal }) {
               );
             })}
             <div className="pt-4 border-t border-purple-200/60 flex flex-col gap-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openMagazineModal();
-                }}
-                className="w-full py-3.5 rounded-full bg-gold-400 text-purple-950 font-bold text-sm shadow-md flex items-center justify-center gap-2"
-              >
-                <BookOpen className="w-4 h-4" />
-                <span>Read Publication PDF</span>
-              </button>
               <button
                 onClick={() => handleNavClick('get-involved')}
                 className="w-full py-3.5 rounded-full purple-gradient-bg text-gold-300 font-bold text-sm shadow-md flex items-center justify-center gap-2"
