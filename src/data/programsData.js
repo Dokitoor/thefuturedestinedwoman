@@ -52,7 +52,7 @@ export const PROGRAMS = [
     description: 'Bridging educational gaps by sponsoring academic scholarships for promising young women in under-resourced communities while offering STEM, tech skills, and resume polishing.',
     highlights: ['Full & Partial Tuition Grants', 'Resume & Interview Clinic', 'Tech & Digital Skills Bootcamp', 'Corporate Internship Matching'],
     duration: 'Ongoing Annual Cohorts',
-    format: 'Community Centers & Online',
+    format: 'Community Centres & Online',
     targetAudience: 'High school graduates & university students',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop'
   },
@@ -61,10 +61,10 @@ export const PROGRAMS = [
     category: 'outreach',
     title: 'Dignity & Family Restoration Initiative',
     subtitle: 'Community Relief & Single-Mother Support',
-    description: 'Providing holistic support, essential care packages, trauma counseling, and micro-vocational kits to single mothers, widows, and vulnerable female-headed households.',
-    highlights: ['Emergency Assistance & Care Kits', 'Counseling & Support Groups', 'Family Financial Workshops', 'Childcare & School Supply Drives'],
+    description: 'Providing holistic support, essential care packages, trauma counselling, and micro-vocational kits to single mothers, widows, and vulnerable female-headed households.',
+    highlights: ['Emergency Assistance & Care Kits', 'Counselling & Support Groups', 'Family Financial Workshops', 'Childcare & School Supply Drives'],
     duration: 'Year-Round Outreach',
-    format: 'Field Outreaches & Community Centers',
+    format: 'Field Outreaches & Community Centres',
     targetAudience: 'Single mothers, widows, and vulnerable families',
     image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1000&auto=format&fit=crop'
   },

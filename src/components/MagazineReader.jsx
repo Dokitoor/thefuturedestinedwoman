@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   X, BookOpen, Download, Share2, Maximize2, Minimize2, 
   ChevronLeft, ChevronRight, List, FileText, CheckCircle2, 
-  Sparkles, Layers, Type, Sun, Moon, Coffee, ExternalLink, ArrowLeft
+  Sparkles, Layers, Type, Sun, Moon, ExternalLink, ArrowLeft
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { MAGAZINE_EDITIONS } from '../data/magazineData';
@@ -15,7 +15,7 @@ export default function MagazineReader({
   const [editionIndex, setEditionIndex] = useState(initialEditionIndex);
   const [currentPage, setCurrentPage] = useState(1);
   const [readerMode, setReaderMode] = useState('interactive'); // 'interactive' | 'pdf'
-  const [theme, setTheme] = useState('ivory'); // 'ivory' | 'dark' | 'white'
+  const [theme, setTheme] = useState('light'); // 'light' | 'dark'
   const [fontSize, setFontSize] = useState('base'); // 'sm' | 'base' | 'lg'
   const [isTOCSidebarOpen, setIsTOCSidebarOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -141,17 +141,7 @@ export default function MagazineReader({
           border: 'border-purple-800/60',
           quoteBg: 'bg-purple-950/80 border-gold-400/50 text-gold-200'
         };
-      case 'white':
-        return {
-          bg: 'bg-stone-100',
-          cardBg: 'bg-white text-stone-900 border-stone-200 shadow-xl',
-          textColor: 'text-stone-800',
-          headingColor: 'text-purple-950',
-          subTextColor: 'text-stone-600',
-          border: 'border-stone-200',
-          quoteBg: 'bg-purple-50/70 border-purple-800/40 text-purple-950'
-        };
-      case 'ivory':
+      case 'light':
       default:
         return {
           bg: 'bg-[#FAF6EE]',
@@ -182,10 +172,10 @@ export default function MagazineReader({
       className="fixed inset-0 z-50 flex flex-col bg-purple-950/95 backdrop-blur-xl animate-in fade-in duration-300 select-none overflow-hidden"
     >
       {/* 1. TOP CONTROL BAR */}
-      <header className="h-16 px-3 sm:px-6 bg-[#1a0224] border-b border-purple-800/60 flex items-center justify-between text-white shrink-0 z-30 shadow-md">
+      <header className="h-16 px-3 sm:px-6 bg-[#1a0224] border-b border-purple-800/60 grid grid-cols-[auto_1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center text-white shrink-0 z-30 shadow-md gap-2 sm:gap-4">
         
-        {/* Left: Exit button & Magazine Info */}
-        <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+        {/* Left: Exit Reader -> Table of Contents -> Magazine Edition Dropdown */}
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0 justify-start">
           <button
             onClick={onClose}
             title="Exit Reader and return to site (Esc)"
@@ -195,117 +185,93 @@ export default function MagazineReader({
             <span className="hidden sm:inline">Exit Reader</span>
           </button>
 
-          <div className="w-9 h-9 rounded-full bg-gold-400/20 border border-gold-400/50 flex items-center justify-center text-gold-300 shrink-0">
-            <BookOpen className="w-4 h-4" />
-          </div>
+          {/* Table of Contents Button Pill (comes first before dropdown) */}
+          <button
+            onClick={() => setIsTOCSidebarOpen(!isTOCSidebarOpen)}
+            title="Table of Contents"
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer shrink-0 ${
+              isTOCSidebarOpen 
+                ? 'bg-gold-400 text-purple-950 border-gold-300 shadow-md' 
+                : 'bg-purple-900/60 hover:bg-purple-800 text-purple-200 hover:text-white border-purple-700/60'
+            }`}
+          >
+            <List className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Contents</span>
+          </button>
 
-          <div className="hidden md:block min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-full bg-purple-900 border border-purple-700 text-[10px] uppercase tracking-widest text-gold-300 font-extrabold">
-                {currentEdition.editionNumber}
-              </span>
-              <span className="text-[11px] text-purple-300 font-serif italic truncate">
-                {currentEdition.releaseDate}
-              </span>
-            </div>
-            <h2 className="font-serif text-sm sm:text-base font-bold text-white truncate max-w-xs lg:max-w-md">
-              {currentEdition.title}
-            </h2>
-          </div>
-
-          {/* Quick Edition Dropdown */}
-          <div className="relative">
+          {/* Quick Magazine Edition Dropdown */}
+          <div className="relative min-w-0">
             <select
               value={editionIndex}
               onChange={(e) => handleSelectEdition(Number(e.target.value))}
               aria-label="Select Magazine Edition"
-              className="bg-purple-900/90 text-gold-200 border border-purple-700 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-gold-400 cursor-pointer font-bold"
+              className="bg-purple-900/90 text-gold-200 border border-purple-700 text-xs rounded-xl px-2.5 py-1.5 focus:outline-none focus:border-gold-400 cursor-pointer font-bold truncate max-w-[140px] xs:max-w-[180px] sm:max-w-xs"
             >
               {MAGAZINE_EDITIONS.map((ed, idx) => (
                 <option key={ed.id} value={idx} className="bg-purple-950 text-white">
-                  {ed.editionNumber} - {ed.title}
+                  {ed.editionNumber} – {ed.title}
                 </option>
               ))}
             </select>
           </div>
-
-          {/* Table of Contents Button */}
-          <button
-            onClick={() => setIsTOCSidebarOpen(!isTOCSidebarOpen)}
-            className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-bold transition-colors cursor-pointer ${
-              isTOCSidebarOpen 
-                ? 'bg-gold-400 text-purple-950 border-gold-300' 
-                : 'bg-purple-900/60 hover:bg-purple-800 text-purple-200 border-purple-700/60'
-            }`}
-          >
-            <List className="w-3.5 h-3.5" />
-            <span>Contents</span>
-          </button>
         </div>
 
-        {/* Center: Mode Selector (Interactive vs Full PDF) */}
-        <div className="flex items-center bg-purple-950/80 p-1 rounded-2xl border border-purple-800/80 shadow-inner">
-          <button
-            onClick={() => setReaderMode('interactive')}
-            className={`px-3 py-1 sm:py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-              readerMode === 'interactive'
-                ? 'bg-gold-400 text-purple-950 shadow-md'
-                : 'text-purple-300 hover:text-white'
-            }`}
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Interactive</span>
-            <span>Reader</span>
-          </button>
+        {/* Center: Mode Selector (Interactive Reader vs Original PDF) - Clean Centralized UI */}
+        <div className="flex items-center justify-center">
+          <div className="flex items-center bg-purple-950/90 p-1 rounded-2xl border border-purple-800/80 shadow-inner">
+            <button
+              onClick={() => setReaderMode('interactive')}
+              className={`px-3 py-1 sm:py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                readerMode === 'interactive'
+                  ? 'bg-gold-400 text-purple-950 shadow-md font-extrabold'
+                  : 'text-purple-300 hover:text-white'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Interactive</span>
+              <span>Reader</span>
+            </button>
 
-          <button
-            onClick={() => setReaderMode('pdf')}
-            className={`px-3 py-1 sm:py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-              readerMode === 'pdf'
-                ? 'bg-gold-400 text-purple-950 shadow-md'
-                : 'text-purple-300 hover:text-white'
-            }`}
-          >
-            <FileText className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Original</span>
-            <span>PDF</span>
-          </button>
+            <button
+              onClick={() => setReaderMode('pdf')}
+              className={`px-3 py-1 sm:py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                readerMode === 'pdf'
+                  ? 'bg-gold-400 text-purple-950 shadow-md font-extrabold'
+                  : 'text-purple-300 hover:text-white'
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Original</span>
+              <span>PDF</span>
+            </button>
+          </div>
         </div>
 
-        {/* Right: Controls & Actions */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        {/* Right: Controls & Actions (Cleaned Theme mode: Light vs Dark) */}
+        <div className="flex items-center gap-1.5 sm:gap-2 justify-end">
           
           {/* Reader Preferences (Only in interactive mode) */}
           {readerMode === 'interactive' && (
             <div className="hidden lg:flex items-center gap-1 bg-purple-900/50 p-1 rounded-xl border border-purple-800/50">
               
-              {/* Theme Selector */}
+              {/* Theme Selector: Light vs Dark */}
               <button
-                title="Ivory Paper Theme"
-                onClick={() => setTheme('ivory')}
-                className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
-                  theme === 'ivory' ? 'bg-[#FCF9F2] text-purple-950 shadow' : 'text-purple-300 hover:text-white'
-                }`}
-              >
-                <Coffee className="w-3.5 h-3.5" />
-              </button>
-              <button
-                title="Royal Dark Theme"
-                onClick={() => setTheme('dark')}
-                className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
-                  theme === 'dark' ? 'bg-purple-950 text-gold-300 shadow' : 'text-purple-300 hover:text-white'
-                }`}
-              >
-                <Moon className="w-3.5 h-3.5" />
-              </button>
-              <button
-                title="Clean White Theme"
-                onClick={() => setTheme('white')}
-                className={`p-1.5 rounded-lg text-xs font-bold transition-all ${
-                  theme === 'white' ? 'bg-white text-stone-900 shadow' : 'text-purple-300 hover:text-white'
+                title="Light Mode"
+                onClick={() => setTheme('light')}
+                className={`p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  theme === 'light' ? 'bg-[#FCF9F2] text-purple-950 shadow font-extrabold' : 'text-purple-300 hover:text-white'
                 }`}
               >
                 <Sun className="w-3.5 h-3.5" />
+              </button>
+              <button
+                title="Dark Mode"
+                onClick={() => setTheme('dark')}
+                className={`p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  theme === 'dark' ? 'bg-purple-950 text-gold-300 shadow font-extrabold border border-purple-800/60' : 'text-purple-300 hover:text-white'
+                }`}
+              >
+                <Moon className="w-3.5 h-3.5" />
               </button>
 
               <div className="h-4 w-px bg-purple-700/50 mx-1" />
@@ -314,7 +280,7 @@ export default function MagazineReader({
               <button
                 title="Decrease Font Size"
                 onClick={() => setFontSize(fontSize === 'lg' ? 'base' : 'sm')}
-                className={`px-1.5 py-0.5 rounded text-[11px] font-bold ${
+                className={`px-1.5 py-0.5 rounded text-[11px] font-bold cursor-pointer ${
                   fontSize === 'sm' ? 'text-gold-300 bg-purple-800' : 'text-purple-300 hover:text-white'
                 }`}
               >
@@ -323,7 +289,7 @@ export default function MagazineReader({
               <button
                 title="Increase Font Size"
                 onClick={() => setFontSize(fontSize === 'sm' ? 'base' : 'lg')}
-                className={`px-1.5 py-0.5 rounded text-[11px] font-bold ${
+                className={`px-1.5 py-0.5 rounded text-[11px] font-bold cursor-pointer ${
                   fontSize === 'lg' ? 'text-gold-300 bg-purple-800' : 'text-purple-300 hover:text-white'
                 }`}
               >

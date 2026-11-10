@@ -44,7 +44,7 @@ export default function About({ navigateTo }) {
           </h1>
 
           <p className="text-lg text-onyx-800 font-light max-w-3xl mx-auto leading-relaxed">
-            The Future Destined Woman (TFDW) is a premier women-focused empowerment organization committed to turning latent female potential into purposeful, multi-generational impact.
+            The Future Destined Woman (TFDW) is a premier women-focused empowerment organisation committed to turning latent female potential into purposeful, multi-generational impact.
           </p>
         </div>
       </section>

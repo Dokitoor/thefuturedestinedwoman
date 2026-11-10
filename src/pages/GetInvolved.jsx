@@ -8,7 +8,7 @@ export default function GetInvolved({ showToast }) {
     fullName: '',
     email: '',
     phone: '',
-    interestCategory: 'Mentee / Program Participant',
+    interestCategory: 'Mentee / Programme Participant',
     message: ''
   });
 
@@ -17,7 +17,7 @@ export default function GetInvolved({ showToast }) {
       id: 'women',
       title: 'For Women & Girls',
       subtitle: 'Join Cohorts & Mentorship',
-      description: 'Discover your divine identity, enroll in mentorship cohorts, attend masterclasses, and connect with a supportive sisterhood.',
+      description: 'Discover your divine identity, enrol in mentorship cohorts, attend masterclasses, and connect with a supportive sisterhood.',
       icon: Heart,
       badge: 'Path 01'
     },
@@ -52,7 +52,7 @@ export default function GetInvolved({ showToast }) {
     } catch (err) {}
 
     showToast(
-      'Inquiry Sent Successfully!',
+      'Enquiry Sent Successfully!',
       `Thank you ${formData.fullName}! Your request as a "${formData.interestCategory}" has been received. Our team will contact you within 24-48 hours.`
     );
 
@@ -60,7 +60,7 @@ export default function GetInvolved({ showToast }) {
       fullName: '',
       email: '',
       phone: '',
-      interestCategory: 'Mentee / Program Participant',
+      interestCategory: 'Mentee / Programme Participant',
       message: ''
     });
   };
@@ -97,7 +97,7 @@ export default function GetInvolved({ showToast }) {
                 key={path.id}
                 onClick={() => {
                   setActivePathway(path.id);
-                  if (path.id === 'women') setFormData(prev => ({ ...prev, interestCategory: 'Mentee / Program Participant' }));
+                  if (path.id === 'women') setFormData(prev => ({ ...prev, interestCategory: 'Mentee / Programme Participant' }));
                   if (path.id === 'mentors') setFormData(prev => ({ ...prev, interestCategory: 'Volunteer / Mentor' }));
                   if (path.id === 'partners') setFormData(prev => ({ ...prev, interestCategory: 'Partner / Sponsor' }));
                 }}
@@ -226,11 +226,11 @@ export default function GetInvolved({ showToast }) {
                   onChange={(e) => setFormData({ ...formData, interestCategory: e.target.value })}
                   className="w-full px-4 py-3 rounded-xl border border-purple-200 text-xs text-onyx-900 focus:outline-none focus:border-gold-500 bg-white font-medium"
                 >
-                  <option value="Mentee / Program Participant">Mentee / Program Participant</option>
+                  <option value="Mentee / Programme Participant">Mentee / Programme Participant</option>
                   <option value="Volunteer / Mentor">Volunteer / Mentor</option>
                   <option value="Partner / Sponsor">Partner / Sponsor</option>
                   <option value="Magazine Contributor">Magazine Contributor / Writer</option>
-                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="General Enquiry">General Enquiry</option>
                 </select>
               </div>
 

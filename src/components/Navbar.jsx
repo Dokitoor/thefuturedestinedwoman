@@ -20,8 +20,8 @@ export default function Navbar({ currentPath, navigateTo, openMagazineModal, ope
   const navLinks = [
     { path: 'home', label: 'Home' },
     { path: 'about', label: 'About Us' },
-    { path: 'programs', label: 'Initiatives & Programs' },
     { path: 'magazine', label: 'Publications' },
+    { path: 'gallery', label: 'Impact Gallery' },
     { path: 'get-involved', label: 'Get Involved' },
   ];
 

@@ -127,7 +127,7 @@ export default function WelcomeIntro({ onComplete }) {
 
         <div className="flex items-center gap-2 text-gold-400">
           <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping" />
-          <span>INITIALIZING PLATFORM</span>
+          <span>INITIALISING PLATFORM</span>
         </div>
       </div>
     </div>

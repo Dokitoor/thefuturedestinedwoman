@@ -11,6 +11,7 @@ import About from './pages/About';
 import Programs from './pages/Programs';
 import Magazine from './pages/Magazine';
 import GetInvolved from './pages/GetInvolved';
+import Gallery from './pages/Gallery';
 
 import { MAGAZINE_EDITIONS } from './data/magazineData';
 
@@ -25,7 +26,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#/', '').replace('#', '');
-      if (['home', 'about', 'programs', 'magazine', 'get-involved'].includes(hash)) {
+      if (['home', 'about', 'programs', 'magazine', 'gallery', 'get-involved'].includes(hash)) {
         setCurrentPath(hash);
       } else {
         setCurrentPath('home');
@@ -109,6 +110,12 @@ export default function App() {
           <Magazine 
             openMagazineModal={openMagazineModal}
             openMagazineReader={openMagazineReader}
+            showToast={showToast} 
+          />
+        )}
+        {currentPath === 'gallery' && (
+          <Gallery 
+            navigateTo={navigateTo}
             showToast={showToast} 
           />
         )}

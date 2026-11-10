@@ -2,14 +2,144 @@ export const MAGAZINE_EDITIONS = [
   {
     id: 'edition-3',
     editionNumber: 'Edition 03',
+    title: 'Born to Birth Greatness',
+    theme: 'Creation, Nurturing & Purpose-Driven Mission',
+    subtitle: 'Flagship Edition • 3rd Issue',
+    releaseDate: 'Edition Year 2021 • 3rd Issue',
+    coverImage: '/images/cover_ed1.png',
+    pdfUrl: '/magazines/BORN TO BIRTH MAG final.pdf',
+    downloadFileName: 'Born_To_Birth_Mag_Final.pdf',
+    featured: true,
+    pagesCount: 35,
+    synopsis: 'Focused on bringing forth, creating, and nurturing divine potential. Packed with key principles on defining your mission and fulfilling your unique assignment.',
+    articles: [
+      { title: 'Born to Create and Nurture', author: 'TFDW Movement', page: 3 },
+      { title: 'Who is She? The Definition of Beautiful', author: 'Reflections Desk', page: 4 },
+      { title: 'Discovering Your Unique "Why"', author: 'Keynote Feature', page: 5 },
+      { title: 'Building Foundations That Last', author: 'Visionary Series', page: 6 }
+    ],
+    pages: [
+      {
+        pageNum: 1,
+        type: 'cover',
+        title: 'Cover Edition 03',
+        subtitle: 'Flagship Publication • 3rd Issue',
+        coverImage: '/images/cover_ed1.png',
+        tagline: 'Born to Birth Greatness'
+      },
+      {
+        pageNum: 2,
+        type: 'toc',
+        title: 'Table of Contents & Executive Welcome',
+        subtitle: 'The Destined Woman • Edition 03 (3rd Issue)',
+        intro: 'Welcome to Edition 03 of The Destined Woman Magazine. In this flagship 3rd issue, we invite every woman to discover her innate capacity to birth, create, and nurture generational transformation.',
+        tableOfContents: [
+          { page: 1, title: 'Front Cover: Born to Birth Greatness', category: 'Showcase' },
+          { page: 2, title: 'Table of Contents & Executive Welcome', category: 'Editorial' },
+          { page: 3, title: 'Born to Create and Nurture: The Divine Capacity', category: 'Foundational Essay' },
+          { page: 4, title: 'Who is She? The Definition of True Beauty', category: 'Reflections' },
+          { page: 5, title: 'Discovering Your Unique "Why": Walking in Clarity', category: 'Masterclass' },
+          { page: 6, title: 'Building Foundations That Last: The Journey Ahead', category: 'Vision' },
+          { page: 7, title: 'Back Cover & Join the Global Movement', category: 'Community Call' }
+        ]
+      },
+      {
+        pageNum: 3,
+        type: 'article',
+        title: 'Born to Create and Nurture: The Divine Capacity',
+        author: 'TFDW Movement Founders',
+        role: 'Inaugural Manifesto & Core Doctrine',
+        pullQuote: '“You are born to birth, create, and nurture. How beautiful your world will be depends on the mission you embark on.”',
+        paragraphs: [
+          'Womanhood is intrinsically tied to incubation and multiplication. Whatever you give a woman, she transforms. Give her raw ingredients, she presents a meal. Give her a house, she creates a home. Give her an idea, she builds an institution.',
+          'Birthing greatness is not limited to physical biological children; it encompasses birthing visions, books, social enterprises, ministries, and cultural movements that heal societies.',
+          'Do not let your creative potential remain dormant. The world is waiting for the solutions that God has embedded in your womb of purpose. Step forth boldly and let creation rejoice in your obedience.'
+        ],
+        takeaways: [
+          'Recognise your innate ability to incubate and multiply value.',
+          'Do not despise the day of small beginnings.',
+          'Nurture your dreams with faith, daily discipline, and accountability.'
+        ]
+      },
+      {
+        pageNum: 4,
+        type: 'article',
+        title: 'Who is She? The Definition of Beautiful',
+        author: 'Reflections Desk',
+        role: 'Philosophical Reflection',
+        pullQuote: '“Beautiful is a woman with a distinctive personality, genuine kindness, and an understanding of her place in God.”',
+        paragraphs: [
+          'The world’s definition of beauty is fickle, commercialised, and ever-shifting. It idolises filters, youth, and superficial appearances. But God’s definition of beauty is eternal.',
+          'A truly beautiful woman illuminates the room she enters not because of vanity, but because of peace, joy, and sincere warmth. Her smile brings comfort to the broken, and her words breathe encouragement into weary hearts.',
+          'Invest more time developing your inner garden than polishing your outer packaging. When your heart is pure and filled with divine love, your countenance radiates an allure that never fades.'
+        ],
+        takeaways: [
+          'Cultivate kindness, gentleness, and an authentic interest in others.',
+          'True elegance is understated and confident.',
+          'Inner peace is the most potent cosmetic known to humanity.'
+        ]
+      },
+      {
+        pageNum: 5,
+        type: 'article',
+        title: 'Discovering Your Unique "Why": Walking in Clarity',
+        author: 'Keynote Feature',
+        role: 'Life Purpose Masterclass',
+        pullQuote: '“The two most important days in your life are the day you were born and the day you discover why.”',
+        paragraphs: [
+          'Living without purpose is like sailing a ship without a rudder—you are at the mercy of every wind and wave of life. Clarifying your purpose brings incredible focus to your daily schedule and financial decisions.',
+          'To identify your assignment, ask yourself three questions: What problem in the world breaks your heart? What activities give you energy rather than drain you? Where do your natural talents meet the deepest needs of others?',
+          'At the intersection of your passion and human suffering lies your divine calling. Walk toward it without fear.'
+        ],
+        takeaways: [
+          'Audit your daily habits to align with your long-term assignment.',
+          'Say "no" to good things so you can say "yes" to great things.',
+          'Seek counsel from wise mentors who walk in the direction you desire to go.'
+        ]
+      },
+      {
+        pageNum: 6,
+        type: 'article',
+        title: 'Building Foundations That Last: The Journey Ahead',
+        author: 'Visionary Series',
+        role: 'Closing Charge & Strategy',
+        pullQuote: '“We are not building for a momentary season; we are laying stones for an eternal kingdom.”',
+        paragraphs: [
+          'As we delve deeper into this 3rd issue, our prayer is that a holy fire has been kindled in your spirit. The Future Destined Woman is not just a publication or an organisation—it is a global uprising of love, wisdom, and leadership.',
+          'Take what you have read, meditate upon it, and share it with a sister, a mother, or a daughter. The revolution begins with one awakened mind.',
+          'Together, we will birth greatness across the nations of the earth.'
+        ],
+        takeaways: [
+          'Commit to continuous personal and spiritual growth.',
+          'Be a beacon of light in your workplace, home, and community.',
+          'Join us in championing the cause of every future destined woman.'
+        ]
+      },
+      {
+        pageNum: 7,
+        type: 'backcover',
+        title: 'Join the Global Movement',
+        subtitle: 'The Future Destined Woman International',
+        coverImage: '/images/hero_portrait.png',
+        tagline: 'Fulfilling God’s Purpose in Womanhood',
+        paragraphs: [
+          'Thank you for reading Edition 03 of The Destined Woman Magazine. The mission does not end with turning the final page—it begins in your daily walk.',
+          'Join over 15,000 women worldwide in our mentorship cohorts, leadership workshops, and humanitarian outreach. Together, we are raising a generation of women who fear God, love humanity, and shape history.'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'edition-2',
+    editionNumber: 'Edition 02',
     title: 'A Future Destined Woman',
     theme: 'Unveiling Purpose & Generational Impact',
-    subtitle: 'Winter-Spring Flagship Issue',
-    releaseDate: 'Flagship Edition (2024–2025)',
+    subtitle: 'Winter-Spring Issue • 2nd Edition',
+    releaseDate: 'Winter–Spring 2019 • 2nd Edition',
     coverImage: '/images/cover_ed3.png',
     pdfUrl: '/magazines/A FUTURE DESTINED WOMAN   Magazine.pdf',
     downloadFileName: 'A_Future_Destined_Woman_Magazine.pdf',
-    featured: true,
+    featured: false,
     pagesCount: 36,
     synopsis: 'A groundbreaking issue exploring the intersection of godly destiny, female leadership in modern society, education, and leaving an indelible mark on humanity.',
     articles: [
@@ -24,8 +154,8 @@ export const MAGAZINE_EDITIONS = [
       {
         pageNum: 1,
         type: 'cover',
-        title: 'Cover Edition',
-        subtitle: 'Winter-Spring Issue • Flagship Publication',
+        title: 'Cover Edition 02',
+        subtitle: 'Winter-Spring Issue • 2nd Edition',
         coverImage: '/images/cover_ed3.png',
         tagline: 'Unveiling Purpose & Generational Impact'
       },
@@ -33,8 +163,8 @@ export const MAGAZINE_EDITIONS = [
         pageNum: 2,
         type: 'toc',
         title: 'Table of Contents & Executive Welcome',
-        subtitle: 'The Destined Woman • Biannual Publication',
-        intro: 'Welcome to Edition 03 of The Destined Woman Magazine. In this edition, we invite every woman to look inward, recognize the divine potential planted within her spirit, and arise to transform her family, community, and nation.',
+        subtitle: 'The Destined Woman • Edition 02',
+        intro: 'Welcome to Edition 02 of The Destined Woman Magazine. In this second edition, we invite every woman to look inward, recognise the divine potential planted within her spirit, and arise to transform her family, community, and nation.',
         tableOfContents: [
           { page: 1, title: 'Front Cover & Official Theme', category: 'Showcase' },
           { page: 2, title: 'Table of Contents & Executive Welcome', category: 'Editorial' },
@@ -56,7 +186,7 @@ export const MAGAZINE_EDITIONS = [
         paragraphs: [
           'Every woman born onto this earth carries an assignment crafted in the council of divine eternity. However, societal stereotypes, cultural inhibitions, and economic hardship frequently whisper that her horizon is limited.',
           'When we founded The Future Destined Woman (TFDW), it was born out of an unshakeable conviction: that when you empower a girl, you educate a family, ignite a community, and resurrect a continent. We refuse to accept that any girl should be confined to the margins of opportunity.',
-          'In this flagship edition, our goal is clear: to awaken the slumbering giant inside every woman. Whether you are leading in boardrooms, nurturing children in homes, innovating in technology, or serving on the mission field, your destiny is too grand to be lived in hesitation. Stand up, embrace your heritage, and leave footprints that generations yet unborn will follow.'
+          'In this second edition, our goal is clear: to awaken the slumbering giant inside every woman. Whether you are leading in boardrooms, nurturing children in homes, innovating in technology, or serving on the mission field, your destiny is too grand to be lived in hesitation. Stand up, embrace your heritage, and leave footprints that generations yet unborn will follow.'
         ],
         takeaways: [
           'Embrace divine self-worth regardless of past background.',
@@ -72,8 +202,8 @@ export const MAGAZINE_EDITIONS = [
         role: 'Editorial Essay on Compassionate Leadership',
         pullQuote: '“You love someone because they sing a song only your heart can understand. Understanding another person’s pain is the starting point of true societal salvation.”',
         paragraphs: [
-          'In an era characterized by hyper-individualism and digital noise, the ancient virtue of self-sacrificing love stands as our only enduring sanctuary. Power without love becomes tyranny; wealth without compassion becomes vanity.',
-          'Throughout our community outreach programs across vulnerable communities, we have met mothers who skipped meals so their daughters could hold schoolbooks. We have seen young mentors spend their weekends tutoring street children in mathematics and literacy. This is the heartbeat of love.',
+          'In an era characterised by hyper-individualism and digital noise, the ancient virtue of self-sacrificing love stands as our only enduring sanctuary. Power without love becomes tyranny; wealth without compassion becomes vanity.',
+          'Throughout our community outreach programmes across vulnerable communities, we have met mothers who skipped meals so their daughters could hold schoolbooks. We have seen young mentors spend their weekends tutoring street children in mathematics and literacy. This is the heartbeat of love.',
           'True leadership does not ask: "How much can I amass for myself?" It asks: "Whose tear can I wipe away today? Whose dignity can I restore?" As destined women, our primary weapon of revolution is an empathetic heart that translates feelings of compassion into concrete action.'
         ],
         takeaways: [
@@ -91,12 +221,12 @@ export const MAGAZINE_EDITIONS = [
         pullQuote: '“Education is not merely knowledge—it is the bedrock of freedom, economic self-reliance, and generational dignity.”',
         paragraphs: [
           'On hot highway intersections and crowded marketplaces, thousands of young school-age girls carry heavy trays of merchandise on their heads during school hours. Each hour spent hawking is an hour stolen from their scientific curiosity, their literacy, and their divine future.',
-          'Through the TFDW "Back to Classroom" sponsorship program, we have successfully enrolled hundreds of vulnerable girls into accredited schools, equipping them with textbooks, uniforms, sanitary dignity kits, and dedicated mentors.',
+          'Through the TFDW "Back to Classroom" sponsorship programme, we have successfully enrolled hundreds of vulnerable girls into accredited schools, equipping them with textbooks, uniforms, sanitary dignity kits, and dedicated mentors.',
           'When a girl learns to read, write, code, and articulate her dreams, she breaks the vicious cycle of intergenerational poverty. Education confers upon her a voice that cannot be silenced by oppression or reduced by circumstance.'
         ],
         takeaways: [
           'Investing in girl child education yields the highest social return of any development metric.',
-          'Community sensitization is vital to dismantle early child labor and forced street hawking.',
+          'Community sensitisation is vital to dismantle early child labour and forced street hawking.',
           'Every girl deserves access to modern STEM and leadership training.'
         ]
       },
@@ -144,19 +274,19 @@ export const MAGAZINE_EDITIONS = [
         coverImage: '/images/hero_portrait.png',
         tagline: 'Fulfilling God’s Purpose in Womanhood',
         paragraphs: [
-          'Thank you for reading Edition 03 of The Destined Woman Magazine. The mission does not end with turning the final page—it begins in your daily walk.',
+          'Thank you for reading Edition 02 of The Destined Woman Magazine. The mission does not end with turning the final page—it begins in your daily walk.',
           'Join over 15,000 women worldwide in our mentorship cohorts, leadership workshops, and humanitarian outreach. Together, we are raising a generation of women who fear God, love humanity, and shape history.'
         ]
       }
     ]
   },
   {
-    id: 'edition-2',
-    editionNumber: 'Edition 02',
+    id: 'edition-1',
+    editionNumber: 'Edition 01',
     title: 'A Lady Destined for Greatness',
     theme: 'Identity, Dignity & Godly Virtues',
-    subtitle: 'Motivational & Character Edition',
-    releaseDate: '2017 Release • Archival Classic',
+    subtitle: 'Inaugural Launch Issue • Motivational Edition',
+    releaseDate: '2017 Release • Inaugural Classic',
     coverImage: '/images/cover_ed2.png',
     pdfUrl: '/magazines/A LADY DESTINED FOR GREATNESS.pdf',
     downloadFileName: 'A_Lady_Destined_For_Greatness.pdf',
@@ -173,24 +303,25 @@ export const MAGAZINE_EDITIONS = [
       {
         pageNum: 1,
         type: 'cover',
-        title: 'Cover Edition 02',
-        subtitle: 'Motivational & Identity Issue',
+        title: 'Cover Edition 01',
+        subtitle: 'Inaugural Launch Publication',
         coverImage: '/images/cover_ed2.png',
         tagline: 'Identity, Dignity & Godly Virtues'
       },
       {
         pageNum: 2,
         type: 'toc',
-        title: 'Editorial Welcome: Edition 02',
+        title: 'Editorial Welcome: Edition 01',
         subtitle: 'The Call to Greatness',
-        intro: 'In this second edition, we explore the essential question of identity. Before a woman can achieve greatness in the world, she must first understand the sacred greatness planted in her soul.',
+        intro: 'In this inaugural first edition, we explore the essential question of identity. Before a woman can achieve greatness in the world, she must first understand the sacred greatness planted in her soul.',
         tableOfContents: [
           { page: 1, title: 'Front Cover: A Lady Destined for Greatness', category: 'Showcase' },
           { page: 2, title: 'Editorial Welcome & Foreword', category: 'Editorial' },
           { page: 3, title: 'As a Woman of Great Destiny: What is Your Stand?', category: 'Core Article' },
           { page: 4, title: 'A Lady Destined for Greatness: The Blueprint', category: 'Keynote Feature' },
           { page: 5, title: 'Understanding Who You Are: Overcoming Insecurity', category: 'Personal Growth' },
-          { page: 6, title: 'Dignity in Adversity & Walking in Godly Power', category: 'Inspiration' }
+          { page: 6, title: 'Dignity in Adversity & Walking in Godly Power', category: 'Inspiration' },
+          { page: 7, title: 'Back Cover & Visionary Commitment', category: 'Community Call' }
         ]
       },
       {
@@ -264,122 +395,17 @@ export const MAGAZINE_EDITIONS = [
           'Maintain grace and kindness even toward those who hurt you.',
           'Keep your vision alive through prayer and unwavering focus.'
         ]
-      }
-    ]
-  },
-  {
-    id: 'edition-1',
-    editionNumber: 'Edition 01',
-    title: 'Born to Birth Greatness',
-    theme: 'Creation, Nurturing & Purpose-Driven Mission',
-    subtitle: 'Inaugural Launch Issue',
-    releaseDate: '2021 Release • The Genesis Issue',
-    coverImage: '/images/cover_ed1.png',
-    pdfUrl: '/magazines/BORN TO BIRTH MAG final.pdf',
-    downloadFileName: 'Born_To_Birth_Mag_Final.pdf',
-    featured: false,
-    pagesCount: 35,
-    synopsis: 'Focused on bringing forth, creating, and nurturing divine potential. Packed with key principles on defining your mission and fulfilling your unique assignment.',
-    articles: [
-      { title: 'Born to Create and Nurture', author: 'TFDW Movement', page: 3 },
-      { title: 'Who is She? The Definition of Beautiful', author: 'Reflections Desk', page: 4 },
-      { title: 'Discovering Your Unique "Why"', author: 'Keynote Feature', page: 5 },
-      { title: 'Building Foundations That Last', author: 'Visionary Series', page: 6 }
-    ],
-    pages: [
-      {
-        pageNum: 1,
-        type: 'cover',
-        title: 'Cover Edition 01',
-        subtitle: 'Inaugural Launch Publication',
-        coverImage: '/images/cover_ed1.png',
-        tagline: 'Born to Birth Greatness'
       },
       {
-        pageNum: 2,
-        type: 'toc',
-        title: 'Inaugural Foreword & Dedication',
-        subtitle: 'The Genesis of The Future Destined Woman',
-        intro: 'Edition 01 marks the historic launch of our publication series. Here, we dedicate our pen, our passion, and our movement to the global awakening of the God-destined woman.',
-        tableOfContents: [
-          { page: 1, title: 'Inaugural Front Cover: Born to Birth Greatness', category: 'Showcase' },
-          { page: 2, title: 'Editorial Welcome & Dedication', category: 'Editorial' },
-          { page: 3, title: 'Born to Create and Nurture: The Divine Capacity', category: 'Foundational Essay' },
-          { page: 4, title: 'Who is She? The Definition of True Beauty', category: 'Reflections' },
-          { page: 5, title: 'Discovering Your Unique "Why": Walking in Clarity', category: 'Masterclass' },
-          { page: 6, title: 'Building Foundations That Last: The Journey Ahead', category: 'Vision' }
-        ]
-      },
-      {
-        pageNum: 3,
-        type: 'article',
-        title: 'Born to Create and Nurture: The Divine Capacity',
-        author: 'TFDW Movement Founders',
-        role: 'Inaugural Manifesto',
-        pullQuote: '“You are born to birth, create, and nurture. How beautiful your world will be depends on the mission you embark on.”',
+        pageNum: 7,
+        type: 'backcover',
+        title: 'Join the Global Movement',
+        subtitle: 'The Future Destined Woman International',
+        coverImage: '/images/hero_portrait.png',
+        tagline: 'Fulfilling God’s Purpose in Womanhood',
         paragraphs: [
-          'Womanhood is intrinsically tied to incubation and multiplication. Whatever you give a woman, she transforms. Give her raw ingredients, she presents a meal. Give her a house, she creates a home. Give her an idea, she builds an institution.',
-          'Birthing greatness is not limited to physical biological children; it encompasses birthing visions, books, social enterprises, ministries, and cultural movements that heal societies.',
-          'Do not let your creative potential remain dormant. The world is waiting for the solutions that God has embedded in your womb of purpose. Step forth boldly and let creation rejoice in your obedience.'
-        ],
-        takeaways: [
-          'Recognize your innate ability to incubate and multiply value.',
-          'Do not despise the day of small beginnings.',
-          'Nurture your dreams with faith, daily discipline, and accountability.'
-        ]
-      },
-      {
-        pageNum: 4,
-        type: 'article',
-        title: 'Who is She? The Definition of Beautiful',
-        author: 'Reflections Desk',
-        role: 'Philosophical Reflection',
-        pullQuote: '“Beautiful is a woman with a distinctive personality, genuine kindness, and an understanding of her place in God.”',
-        paragraphs: [
-          'The world’s definition of beauty is fickle, commercialized, and ever-shifting. It idolizes filters, youth, and superficial appearances. But God’s definition of beauty is eternal.',
-          'A truly beautiful woman illuminates the room she enters not because of vanity, but because of peace, joy, and sincere warmth. Her smile brings comfort to the broken, and her words breathe encouragement into weary hearts.',
-          'Invest more time developing your inner garden than polishing your outer packaging. When your heart is pure and filled with divine love, your countenance radiates an allure that never fades.'
-        ],
-        takeaways: [
-          'Cultivate kindness, gentleness, and an authentic interest in others.',
-          'True elegance is understated and confident.',
-          'Inner peace is the most potent cosmetic known to humanity.'
-        ]
-      },
-      {
-        pageNum: 5,
-        type: 'article',
-        title: 'Discovering Your Unique "Why": Walking in Clarity',
-        author: 'Keynote Feature',
-        role: 'Life Purpose Masterclass',
-        pullQuote: '“The two most important days in your life are the day you were born and the day you discover why.”',
-        paragraphs: [
-          'Living without purpose is like sailing a ship without a rudder—you are at the mercy of every wind and wave of life. Clarifying your purpose brings incredible focus to your daily schedule and financial decisions.',
-          'To identify your assignment, ask yourself three questions: What problem in the world breaks your heart? What activities give you energy rather than drain you? Where do your natural talents meet the deepest needs of others?',
-          'At the intersection of your passion and human suffering lies your divine calling. Walk toward it without fear.'
-        ],
-        takeaways: [
-          'Audit your daily habits to align with your long-term assignment.',
-          'Say "no" to good things so you can say "yes" to great things.',
-          'Seek counsel from wise mentors who walk in the direction you desire to go.'
-        ]
-      },
-      {
-        pageNum: 6,
-        type: 'article',
-        title: 'Building Foundations That Last: The Journey Ahead',
-        author: 'Visionary Series',
-        role: 'Inaugural Issue Closing Charge',
-        pullQuote: '“We are not building for a momentary season; we are laying stones for an eternal kingdom.”',
-        paragraphs: [
-          'As we close this inaugural edition, our prayer is that a holy fire has been kindled in your spirit. The Future Destined Woman is not just a publication or an organization—it is a global uprising of love, wisdom, and leadership.',
-          'Take what you have read, meditate upon it, and share it with a sister, a mother, or a daughter. The revolution begins with one awakened mind.',
-          'Together, we will birth greatness across the nations of the earth.'
-        ],
-        takeaways: [
-          'Commit to continuous personal and spiritual growth.',
-          'Be a beacon of light in your workplace, home, and community.',
-          'Join us in championing the cause of every future destined woman.'
+          'Thank you for reading Edition 01 of The Destined Woman Magazine.',
+          'Join over 15,000 women worldwide in our mentorship cohorts, leadership workshops, and humanitarian outreach.'
         ]
       }
     ]

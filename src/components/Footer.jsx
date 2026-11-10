@@ -76,6 +76,9 @@ export default function Footer({ navigateTo, showToast, openMagazineModal, openM
                 <button onClick={() => navigateTo('magazine')} className="hover:text-gold-300 transition-colors">Publications & Magazine</button>
               </li>
               <li>
+                <button onClick={() => navigateTo('gallery')} className="hover:text-gold-300 transition-colors">Project HealthAid Gallery</button>
+              </li>
+              <li>
                 <button onClick={() => navigateTo('get-involved')} className="hover:text-gold-300 transition-colors">Get Involved</button>
               </li>
             </ul>

@@ -60,7 +60,7 @@ export const CORE_VALUES = [
     number: '08',
     title: 'Dignity',
     subtitle: 'Upholding Inherent Female Worth',
-    description: 'Restoring honor, self-respect, and sacred worth to women who have experienced trauma, rejection, or economic hardship.',
+    description: 'Restoring honour, self-respect, and sacred worth to women who have experienced trauma, rejection, or economic hardship.',
     quote: '"Every woman holds sacred worth that no circumstance can erode."'
   },
   {

@@ -46,26 +46,32 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
     <div className="space-y-0">
       
       {/* 1. HERO SECTION (2-Column "2L" Split Layout) */}
-      <section className="relative pt-24 pb-0 lg:pt-28 flex items-end overflow-hidden bg-purple-50/50 border-b border-purple-200/80">
+      <section className="relative pt-16 sm:pt-20 lg:pt-20 pb-0 overflow-hidden bg-purple-50/50 border-b border-purple-200/80">
         
         {/* Soft Background Radial Accent Glows */}
-        <div className="absolute top-16 left-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-10 left-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* LEFT COLUMN: Narrative, Headline & CTAs (Shifted Higher) */}
-            <div className="lg:col-span-7 space-y-6 pb-8 lg:pb-12 pt-2">
+            {/* LEFT COLUMN: Narrative, Headline & CTAs (Elevated & Vertically Balanced) */}
+            <div className="lg:col-span-6 space-y-5 py-4 lg:py-6 self-center">
+
+              {/* Editorial Eyebrow Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/90 border border-purple-200 text-purple-900 text-xs font-bold tracking-wide">
+                <Sparkles className="w-3.5 h-3.5 text-gold-600" />
+                <span>The Movement for Women & Girls</span>
+              </div>
 
               {/* Main Impact Headline */}
-              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-extrabold text-purple-950 tracking-tight leading-[1.03]">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-purple-950 tracking-tight leading-[1.06]">
                 Until Every Woman <br />
                 <span className="purple-gradient-text italic font-serif">Walks in Destiny.</span>
               </h1>
 
               {/* Subheadline Paragraph */}
-              <p className="text-lg sm:text-xl text-onyx-800 font-light leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-onyx-800 font-light leading-relaxed max-w-xl">
                 The Future Destined Woman (TFDW) is an international movement championing gender equality, leadership, and transformative empowerment for women and girls across the globe.
               </p>
 
@@ -73,7 +79,7 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
               <div className="pt-2 flex flex-wrap items-center gap-4">
                 <button
                   onClick={() => navigateTo('get-involved')}
-                  className="px-8 py-4 rounded-full bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-sm tracking-wide shadow-luxury transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2 cursor-pointer border border-purple-700"
+                  className="px-7 py-3.5 rounded-full bg-purple-900 hover:bg-purple-950 text-white font-extrabold text-sm tracking-wide shadow-luxury transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer border border-purple-700"
                 >
                   <span>Join the Movement</span>
                   <ArrowRight className="w-4 h-4 text-white" />
@@ -81,7 +87,7 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
 
                 <button
                   onClick={() => (openMagazineReader ? openMagazineReader(0) : openMagazineModal(0))}
-                  className="px-8 py-4 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-extrabold text-sm tracking-wide border-2 border-purple-950 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm group"
+                  className="px-7 py-3.5 rounded-full bg-white hover:bg-purple-50 text-purple-950 font-extrabold text-sm tracking-wide border-2 border-purple-950 transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-sm group"
                 >
                   <BookOpen className="w-4 h-4 text-purple-800 group-hover:rotate-12 transition-transform" />
                   <span>Read Magazine Online</span>
@@ -89,33 +95,33 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
               </div>
 
               {/* Trust & Program Badges */}
-              <div className="pt-6 border-t border-purple-200/80 grid grid-cols-3 gap-4 text-xs text-purple-950 font-bold">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
+              <div className="pt-5 border-t border-purple-200/80 grid grid-cols-3 gap-2 sm:gap-4 text-[11px] sm:text-xs text-purple-950 font-bold">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-700 shrink-0" />
                   <span>Leadership Cohorts</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-700 shrink-0" />
                   <span>Biannual Publications</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-purple-700 shrink-0" />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-700 shrink-0" />
                   <span>Global Sisterhood</span>
                 </div>
               </div>
 
             </div>
 
-            {/* RIGHT COLUMN: Diagonally Enlarged Transparent Cutout Portrait Flush to Hero Section Bottom */}
-            <div className="lg:col-span-5 relative flex justify-center items-end h-[580px] sm:h-[680px] lg:h-[780px] w-full overflow-hidden">
+            {/* RIGHT COLUMN: Transparent Leadership Cutout Portrait Flush to Hero Section Bottom */}
+            <div className="lg:col-span-6 relative flex justify-center lg:justify-end items-end self-end w-full">
               {/* Soft Ambient Depth Glow */}
-              <div className="absolute bottom-10 w-96 h-96 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
+              <div className="absolute bottom-6 w-96 h-96 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
 
-              {/* Transparent Cutout Image Diagonally Scaled & Anchored Flush at Bottom */}
+              {/* Transparent Cutout Image with Zero Side-Clipping */}
               <img
-                src="/images/hero_portrait.png"
+                src="/images/hero_leadership.png?v=2"
                 alt="The Future Destined Woman Leadership"
-                className="relative z-10 w-full h-full max-h-[620px] sm:max-h-[720px] lg:max-h-[820px] object-contain object-bottom drop-shadow-2xl translate-y-1 transform scale-110 sm:scale-115 lg:scale-120 origin-bottom transition-transform duration-500"
+                className="relative z-10 w-full max-w-[560px] sm:max-w-[620px] lg:max-w-[680px] h-auto max-h-[480px] sm:max-h-[560px] lg:max-h-[620px] object-contain object-bottom drop-shadow-2xl translate-y-1 origin-bottom"
               />
             </div>
 
@@ -230,7 +236,7 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
               </h2>
 
               <p className="text-onyx-800 text-base font-light leading-relaxed">
-                Upcoming mentorship cohorts, executive leadership labs, and empowerment programs designed to nurture holistic female transformation.
+                Upcoming mentorship cohorts, executive leadership labs, and empowerment programmes designed to nurture holistic female transformation.
               </p>
 
               <div className="pt-2">
@@ -324,8 +330,8 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
                 className="book-card cursor-pointer relative max-w-sm rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-400/40 group"
               >
                 <img
-                  src="/images/cover_ed3.png"
-                  alt="The Destined Woman Magazine - Edition 3"
+                  src={latestMagazine.coverImage}
+                  alt={`${latestMagazine.title} - ${latestMagazine.editionNumber}`}
                   className="w-full h-[490px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-950/85 via-transparent to-transparent opacity-85 group-hover:opacity-60 transition-opacity" />
@@ -336,7 +342,7 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
                     <span>Click to Read Online</span>
                   </span>
                   <h4 className="font-serif text-2xl font-bold">
-                    Edition 3 • Flagship Publication
+                    {latestMagazine.editionNumber} • {latestMagazine.title}
                   </h4>
                 </div>
               </div>
@@ -352,11 +358,11 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
 
               <h2 className="font-serif text-4xl sm:text-5xl font-extrabold text-purple-950 leading-tight">
                 The Destined Woman Magazine <br />
-                <span className="gold-gradient-text italic font-serif">Edition 03 (Current Issue)</span>
+                <span className="gold-gradient-text italic font-serif">{latestMagazine.editionNumber} (Current Issue)</span>
               </h2>
 
               <p className="text-lg text-onyx-800 font-light leading-relaxed">
-                A biannual luxury publication released once every two years—filled with inspiring real stories, godly wisdom, leadership masterclasses, and practical development tools for women.
+                {latestMagazine.synopsis}
               </p>
 
               {/* Key Highlights Grid */}
@@ -402,6 +408,70 @@ export default function Home({ navigateTo, openMagazineModal, openMagazineReader
 
             </div>
 
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5B. PROJECT HEALTHAID FIELD DOCUMENTARY SHOWCASE */}
+      <section className="py-20 bg-gradient-to-b from-white via-purple-50/40 to-white border-y border-purple-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-100 text-purple-900 border border-purple-200 text-xs font-bold uppercase tracking-wider mb-3">
+                <Sparkles className="w-3.5 h-3.5 text-gold-500" />
+                <span>Field Impact Documentary</span>
+              </div>
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold text-purple-950 tracking-tight">
+                Project HealthAid: Malaysia Garden
+              </h2>
+              <p className="text-stone-600 text-sm sm:text-base mt-2 max-w-2xl font-light">
+                Delivering free maternal & paediatric clinical consultations, prescription medications, vital screenings, and relief packages at the Malaysia Garden IDP Camp, Abuja.
+              </p>
+            </div>
+
+            <button
+              onClick={() => navigateTo('gallery')}
+              className="px-6 py-3.5 rounded-full bg-purple-950 hover:bg-purple-900 text-gold-300 font-bold text-xs uppercase tracking-wider shadow-lg transition-all flex items-center gap-2 shrink-0 cursor-pointer self-start md:self-auto hover:scale-105"
+            >
+              <span>View Full 15-Photo Gallery</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* 4-Photo Showcase Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                src: '/images/gallery/healthaid/healthaid_01.jpg',
+                alt: 'Doctor consultations at Malaysia Garden IDP camp'
+              },
+              {
+                src: '/images/gallery/healthaid/healthaid_04.jpg',
+                alt: 'Volunteer medical taskforce on the field'
+              },
+              {
+                src: '/images/gallery/healthaid/healthaid_05.jpg',
+                alt: 'Maternal and child wellness care'
+              },
+              {
+                src: '/images/gallery/healthaid/healthaid_07.jpg',
+                alt: 'Dignity kits and relief package distribution'
+              }
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                onClick={() => navigateTo('gallery')}
+                className="group relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[3/4] bg-stone-100 shadow-luxury hover:shadow-2xl transition-all duration-300 cursor-pointer border border-purple-200/50"
+              >
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
 
         </div>

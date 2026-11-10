@@ -70,7 +70,7 @@ export default function MetricCounter() {
     {
       icon: Award,
       count: '10+',
-      label: 'Core Programs',
+      label: 'Core Programmes',
       sublabel: 'Mentorship & Leadership Cohorts'
     },
     {
